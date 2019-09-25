@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+label {
+    display: block;
+}
+input, button {
+    padding: .7em;
+    margin: .3em;
+    border-radius: .3.5em;
+}
+#video{
+	width: 325px;
+	height: 225px;
+}
+input {
+    display: block;
+    font-size: 1em;
+}
+#imgDiv{
+	margin-top: 2em;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+.hidden {
+ 	display: none;
+ }
+#wrapper{
+	padding-top: 2em;
+	width:420px; display:table-cell;
+}
+#jsonOutput{
+	width:600px; display:table-cell;
+}
+#responseTextArea{
+	width:580px; height:400px;
+}

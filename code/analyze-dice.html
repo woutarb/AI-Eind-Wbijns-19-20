@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Analyze Dice</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+	</head>
+	
+	<body>
+	<h1>Take a snapshot with your webcam to analyze your rolls</h1>
+  	<label>Take a snapshot of the die or dice you just rolled</label>
+  	<div>
+		<button onclick="startWebcam();">Start webcam</button>
+		<button id="takeSnap" disabled>Take snapshot</button>
+		<button onclick="stopWebcam();">Stop webcam</button>
+  	</div>
+  	<video id="video" controls autoplay></video>
+	<button onclick="processImage();">Analyse dice</button>
+	<div>
+		<p>Image:</p>
+		<canvas id="sourceImage"></canvas>
+		<pre id="responseArea"></pre>
+	</div>
+
+	<div id="wrapper">
+		<div id="jsonOutput">
+			<label for="responseTextArea">Response:</label> 
+			<textarea id="responseTextArea" class="UIInput"></textarea>
+		</div>
+		
+		<div id="imgDiv">
+			<label for="sourceImage">Source Image:</label> 
+			<img id="sourceImage" src="." alt="">
+		</div>
+	</div>
+		
+		<script rel="script" src="scripts/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	</body>
+</html>  
