@@ -3,6 +3,8 @@ var imageTaken = document.getElementById('sourceImage');
 var imagePNG;
 var BASE64_MARKER = ';base64,';
 
+// Startwebcam, takesnap, stopwebcam are from a zip out of Slack from Sonja Rouwhorst. ConvertData from https://stackoverflow.com/questions/4998908/convert-data-uri-to-file-then-append-to-formdata#5100158 . Processimage and showresults are from the MS azure quickstart for printed text vision https://docs.microsoft.com/nl-nl/azure/cognitive-services/Computer-vision/quickstarts/javascript-print-text Dice are printed text after all, so I thought it'd be more accurate than the written text version
+
 // Function needed to start webcam and allow the making of snappictures
 function startWebcam() {
 	var vid = document.querySelector('video');
@@ -30,7 +32,6 @@ function startWebcam() {
     })
     .catch(e => console.log('error: ' + e));
     }
-
 
 //Taking pictures, storing it in a variable and activating processing
 function takeSnap() {
@@ -128,6 +129,7 @@ function processImage() {
             alert(errorString);
         });
 };
+
 //Showing the results in JSON. 
 function showResults(json) {
 	// show results in responseArea
