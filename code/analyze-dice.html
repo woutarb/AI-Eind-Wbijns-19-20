@@ -3,6 +3,7 @@
 	<head>
 		<title>Analyze Dice</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="shortcut icon" href="styles/d10.png" />
 	</head>
 	
 	<body>
@@ -12,9 +13,9 @@
 		<button onclick="startWebcam();">Start webcam</button>
 		<button id="takeSnap" disabled>Take snapshot</button>
 		<button onclick="stopWebcam();">Stop webcam</button>
+		<button onclick="processImage();">Analyse dice</button>
   	</div>
   	<video id="video" controls autoplay></video>
-	<button onclick="processImage();">Analyse dice</button>
 	<div>
 		<p>Image:</p>
 		<canvas id="sourceImage"></canvas>
@@ -27,12 +28,7 @@
 			<textarea id="responseTextArea" class="UIInput"></textarea>
 		</div>
 		
-		<div id="imgDiv">
-			<label for="sourceImage">Source Image:</label> 
-			<img id="sourceImage" src="." alt="">
-		</div>
 	</div>
-		
 		<script rel="script" src="scripts/script.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	</body>

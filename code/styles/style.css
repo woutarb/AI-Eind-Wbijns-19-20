@@ -1,18 +1,23 @@
 body {
     font-family: sans-serif;
     font-weight: lighter;
+	text-align: center;
+	margin: 0 auto;
 }
 label {
     display: block;
+	margin: 1em;
 }
 input, button {
     padding: .7em;
     margin: .3em;
-    border-radius: .3.5em;
+    border-radius: 3.5em;
 }
 #video{
 	width: 325px;
 	height: 225px;
+	display: inline-block;
+	margin-top: 0.5em;
 }
 input {
     display: block;
@@ -27,14 +32,12 @@ img {
 }
 .hidden {
  	display: none;
- }
+}
 #wrapper{
 	padding-top: 2em;
-	width:420px; display:table-cell;
-}
-#jsonOutput{
-	width:600px; display:table-cell;
+	display:inline-block;
 }
 #responseTextArea{
-	width:580px; height:400px;
+	width:640px; 
+	height:480px;
 }
