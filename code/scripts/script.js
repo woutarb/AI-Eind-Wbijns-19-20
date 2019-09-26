@@ -3,12 +3,7 @@ var imageTaken = document.getElementById('sourceImage');
 var imagePNG;
 var BASE64_MARKER = ';base64,';
 
-    // ***********************************************************************
-    // *** function startWebcam                                           ***
-    // *** ask permision from user and start webcam, then                 ***
-    // *** enable the button to take a snapshot                           ***
-    // ***********************************************************************
-   
+// Function needed to start webcam and allow the making of snappictures
 function startWebcam() {
 	var vid = document.querySelector('video');
     // request cam
@@ -36,12 +31,8 @@ function startWebcam() {
     .catch(e => console.log('error: ' + e));
     }
 
-    // ***********************************************************************
-    // *** function takeSnap                                              ***
-    // *** show snapshotimage from webcam                                 ***
-    // *** convert image to blob                                          ***
-    // ***********************************************************************
 
+//Taking pictures, storing it in a variable and activating processing
 function takeSnap() {
 	// get video element
     var vid = document.querySelector('video');
@@ -58,15 +49,11 @@ function takeSnap() {
       // request a Blob from the canvas
     canvas.toBlob(res, 'image/jpeg');
 	imagePNG = canvas.toDataURL("image/png");
-    });
+    processImage();
+	});
 }
 
-    // ***********************************************************************
-    // *** function stopWebcam                                             ***
-    // *** stop webcam                                                     ***
-    // *** disable snapshot button                                         ***
-    // ***********************************************************************
-
+// Stopping the webcam from working
 function stopWebcam() {
 	var vid = document.querySelector('video');
     vid.srcObject.getTracks().forEach((track) => {
@@ -76,6 +63,7 @@ function stopWebcam() {
     document.querySelector('#takeSnap').disabled = true;
     }
 
+// Needed to be able to process the snap made
 function convertDataURIToBinary(dataURI) {
 var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
 var base64 = dataURI.substring(base64Index);
@@ -89,11 +77,13 @@ array[i] = raw.charCodeAt(i);
 return array;
 }
 
+// Processing the image
 function processImage() {
 	let subscriptionKey = '';
     let endpoint = '';
+	// If there isn't a key, this is not going to work
     if (!subscriptionKey){ 
-		throw new Error('Fix je environment variabelen voor je sleutel en eindpunt.'); 
+		throw new Error('Fix your environment variabeles for key and endpoint.'); 
 	}    
     	var uriBase = endpoint + "vision/v2.0/ocr";
 	
@@ -138,7 +128,7 @@ function processImage() {
             alert(errorString);
         });
 };
-
+//Showing the results in JSON. 
 function showResults(json) {
 	// show results in responseArea
     document.querySelector('#responseArea').textContent = JSON.stringify(json, null, 2);
